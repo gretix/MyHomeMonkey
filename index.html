@@ -17,7 +17,7 @@ var xml=x.responseXML; //переменной xml присваеваем зна�
 path="/bookstore/book[price>35]/title";
 
 // code for IE
-if (window.ActiveXObject || xhttp.responseType=="msxml-document")
+if (window.ActiveXObject || xhttp.responseType=="msxml-document") //проверка на открытие в IE
 {
 xml.setProperty("SelectionLanguage","XPath");
 nodes=xml.selectNodes(path);
@@ -29,7 +29,7 @@ for (i=0;i<nodes.length;i++)
 }
 
 // code for Chrome, Firefox, Opera, etc.
-else if (document.implementation && document.implementation.createDocument)
+else if (document.implementation && document.implementation.createDocument) //проверка на открытие в браузерах Chrome, Firefox, Opera
 {
 var nodes=xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
 var result=nodes.iterateNext();
